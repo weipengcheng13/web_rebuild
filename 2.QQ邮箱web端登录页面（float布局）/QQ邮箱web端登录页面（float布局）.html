@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq邮箱</title>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		html,body,.main{
+			width: 100%;
+			height: 100%;
+		}
+		.header{
+			width: 100%;
+			height: 60px;
+			box-sizing: border-box;
+			border-top: 1px solid #D6DFEA;
+			border-bottom: 1px solid #D6DFEA;
+			background-color: #EFF4FA;
+		}
+		.footer{
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #D6DFEA;
+			border-bottom: 1px solid #D6DFEA;
+			background-color: #EFF4FA;
+
+		}
+		.content{
+			width: 70%;
+			height: calc(100% - 100px);
+			/*background-color: pink;*/
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.content-left{
+			width: 60%;
+			/*background-color: teal;*/
+			height:70%;
+			margin-top: 10%;
+			background-image: url('./images/qq.png');
+			background-size: 100% 100%;
+			float: left;
+		}
+		.content-right{
+			width: 30%;
+			box-sizing: border-box;
+			height:60%;
+			margin-top: 10%;
+			border: 1px solid #ddd;
+			float: right;
+			margin-right: 5%;
+			border-radius: 5px;
+			overflow: hidden;
+		}
+		.title{
+			font-size: 24px;
+			color: #6f95c8;
+		}
+		p{
+			line-height: 28px;
+			margin-left: 10%;
+		}
+		.content-right-top{
+			width: 100%;
+			height: 14%;
+			background-color: #f9fbfe;
+			border-bottom: 1px solid #a0b1c4;
+		}
+		.content-right-bottom{
+			margin-top: 15%;
+			width: 100%;
+			height: 66%;
+			/*border: 1px solid red;*/
+		}
+		.input1{
+			box-sizing: border-box; 
+			height: 12%; 
+			width: 85%; 
+			margin-left: 8%; 
+			margin-bottom: 3%;
+			padding-left:8%;
+		}
+		.input2{
+			margin-left: 8%; 
+			margin-top: 5%;
+			margin-right: 2%;
+		}
+		.button1{
+			height: 12%; 
+			width: 85%;
+			margin-left: 8%; 
+			margin-top: 7%;
+			background-color: #5A98DE;
+			color: #fff
+		}
+		.button1:hover{
+			cursor: pointer;
+		}.button2:hover{
+			cursor: pointer;
+		}.button3:hover{
+			cursor: pointer;
+		}
+		.button2{
+			margin-left: 41%; 
+			margin-top: 5%;
+			color: #24558E;
+			font-size: 10px;
+		}.button3{
+			margin-left: 77%; 
+			margin-top: 5%;
+			color: #24558E;
+			font-size: 10px;
+		}
+		.img{
+			width: 13%;
+			height: 70%;
+			background-size: 100% 100%;
+			background-image: url('./images/IMG_7763.JPG');
+			float: left;
+			margin-top: 10px;
+			margin-left: 20px;
+		}
+		.img+div{
+			width: 13%;
+			color: #1D5494;
+			float: right;
+			margin-right: 25px;
+			margin-top: 20px;
+			font-size: 10px;
+		}
+		.img+div:hover{
+			cursor: pointer;
+		}
+		.footer>div{
+			color: #1D5494;
+			margin-left: 34%;
+			margin-top: 10px;
+			font-size: 10px;
+			display: inline-block;
+		}
+		.footer>div:hover{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div class="img"></div>	
+			<div>基本版｜English｜手机版｜企业邮箱</div>
+		</div>
+		<div class="content">
+			<div class="content-left">
+				<p class="title">QQ邮箱，常联系！</p>
+				<p>没有什么能够阻挡</p>
+				<p>你对自由的向往</p>
+				<p>天马行空的生涯</p>
+			</div>
+			<div class="content-right">
+				<div class="content-right-top">
+					<div style="float: left; margin-left: 18%;margin-top: 7%;">微信登录</div>
+					<div style="float: right;margin-right: 21%;margin-top: 7%;">QQ登录</div>
+				</div>
+				<div class="content-right-bottom">
+					<input class="input1" type="text" name="username" placeholder="支持QQ号/邮箱/手机号登录">
+					<input class="input1" type="password" name="pwd" placeholder="QQ密码" ><br>
+					<input class="input2" type="checkbox" name="autologin"><span>下次自动登录</span>
+					<button class="button1">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+					<div class="button2">扫码快捷登录</div>
+					<div class="button3">忘了密码？</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div>关于腾讯 | 服务条款 | 隐私政策 | 客服中心 | 联系我们 | 帮助中心 | </div>
+			<font style="font-size: 10px;color: #868686;">©1998 - 2020 Tencent Inc. All Rights Reserved.</font>
+		</div>
+	</div>
+</body>
+</html>

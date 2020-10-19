@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贝壳网</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		html,body,.main{
+			width: 100%;
+			height: 100%;
+		}
+		.header{
+			height: 566px;
+			width: 100%;
+			/*background-color: pink;*/
+			background-image: url('images/bg_header@1x.jpg');
+			background-position: center 0;
+			/*position: relative;*/
+			background-size: 100% 100%;
+		}
+		/*页面顶部*/
+		.header_top{
+			width: 92%;
+			height: 50px;
+			/*background-color: red;*/
+			margin: 0 auto;
+			position: relative;
+			top: 36px;
+		}
+		/*Logo*/
+		.logo{
+			display: inline-block;
+			float: left;
+			width: 94px;
+			height: 34px;
+			margin-top: 8px;
+			background-image: url('images/logo.png');
+			background-position: -72px 0;
+		}
+		/*地址*/
+		.city{
+			display: inline-block;
+			height: 24px;
+			padding: 0 8px;
+			line-height: 24px;
+			text-align: center;
+			color: #fff;
+			margin-top: 12px;
+			cursor: pointer;
+			border-radius: 14px;
+			font-size: 14px;
+			text-decoration: none;
+			border: 2px solid #fff;
+			/*float: left;*/
+		}
+		a{
+			color: #fff;
+			text-decoration: none;
+		}
+		a:focus{
+			outline: none;
+		}
+		/*所在城市*/
+		.address{
+			width: 20px;
+			height: 15px;
+			cursor: pointer;
+		}
+		/*导航栏*/
+		.header_top_center{
+			float: right;
+			line-height: 50px;
+		}
+		/*登录靠右*/
+		.header_top_right{
+			float: right;
+			line-height: 50px;
+		}
+		/*登录居中*/
+		.login{
+			font-size: 17px;
+			line-height: 50px;
+			font-weight: bold;
+		}
+		/*用户头像*/
+		.user_img{
+			width: 26px;
+			height: 26px;
+			/*margin-top: 12px;*/
+			line-height: 50px;
+			position: relative;
+			top:6px;
+		}
+		/*导航栏列表样式*/
+		.header_top_center li{
+			display: inline-block;
+			line-height: 0px;
+			font-weight: bold;
+			font-size: 17px;
+			margin-right: 15px;
+		}
+		/*头部中间样式*/
+		.header_center{
+			/*width: 76%;*/
+			width: 1150px;
+			height: 300px;
+			margin: 0 auto;
+			/*background-color: pink;*/
+			padding-top: 150px;
+		}
+		/*小喇叭框*/
+		.header_bottom{
+			width: 1150px;
+			height: 20px;
+			color: #fff;
+			line-height: 20px;
+			margin: 0 auto;
+			box-sizing: border-box;
+			padding-top: 25px;
+		}
+		/*找真房源字*/
+		.small_title{
+			height: 28px;
+			font-size: 28px;
+			line-height: 28px;
+			font-weight: 400;
+			color: #fff;
+		}
+		/*开始寻找字*/
+		.big_title{
+			text-align: left;
+			color: #fff;
+			padding-top: 15px;
+			font-size: 66px;
+			font-weight: 600;
+			line-height: 68px;
+		}
+		/*搜索框*/
+		.search_box{
+			position: relative;
+			margin-top: 25px;
+		}
+		/*搜索框上面箭头*/
+		.search_box i{
+			border-left: 9px solid transparent;
+			border-right: 9px solid transparent;
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 27px;
+			left: 23px;
+			border-bottom: 10px solid #fff;
+		}
+		/*搜索框清除样式*/
+		.search_clear{
+			clear: both;
+			position: relative;
+			width: 590px;
+		}
+		/*.searchBox_clear{
+			position: relative;
+		}*/
+		/*导航栏格式*/
+		.menu li{
+			display: inline-block;
+			line-height: 0px;
+			font-weight: bold;
+			font-size: 17px;
+			margin-right: 15px;
+			color: #fff;
+		}
+		/*搜索框*/
+		.box{
+			margin-top: 15px;
+			background: #fff;
+			border-radius: 4px;
+			clear: both;
+			height: 50px;
+			box-shadow: 1px 0 5px rgba(0,0,0,0.2);
+		}
+		/*搜索框输入栏*/
+		.search_input{
+			padding-left: 20px;
+			width: 380px;
+			border: 0;
+			height: 50px;
+			border-radius: 4px;
+			font-size: 16px;
+		}
+		/*搜索栏地址图标*/
+		.address_icon{
+			right: 76px;
+			top: 0;
+			height: 55px;
+			width: 50px;
+			position: absolute;
+			align-items: center;
+			padding-left: 30px;
+			line-height: 50px;
+			font-size: 16px;
+			color: #666;
+			font-weight: bold;
+		}
+		/*地图图标*/
+		.icon{
+			position: absolute;
+			left: 0;
+			/*right: 5px;*/
+			top: 13px;
+			width: 24px;
+			height: 24px;
+			background: url('images/地图.png') no-repeat;
+			background-size: 100% 100%;
+			display: inline-block;
+		}
+		/*搜索按钮样式*/
+		.btn_search{
+			background-color: #3072f6;
+			width: 76px;
+			height: 50px;
+			float: right;
+			border: 0;
+			display: block;
+			border-radius: 0 4px 4px 0;
+			cursor: pointer;
+			text-align: center;
+			color: #fff;
+		}
+		/*搜索按钮放大镜图片*/
+		.searchBox_clear i{
+			background-image: url(images/logo.png);
+			background-position: -98px -34px;
+			width: 19px;
+			height: 19px;
+			position: absolute;
+			display: inline-block;
+			top: 15px;
+			right:28px;
+			cursor: pointer;
+			pointer-events: none;
+		}
+		/*顶部下面小喇叭部分*/
+		.house_num{
+			float: left;
+		}
+		/*小喇叭图片插入*/
+		.house_num i{
+			float: left;
+			margin-top: 4px;
+			background-image: url('images/logo.png');
+			background-position: -117px -34px;
+			width: 16px;
+			height: 13px;
+		}
+		/*小喇叭数字样式*/
+		.house_num ul{
+			float: left;
+			height: 20px;
+			overflow: hidden;
+			font-size: 14px;
+		}
+		/*我是业主弹框*/
+		.owner_serve{
+			width: 100px;
+			position: absolute;
+			top: 15px;
+			text-align: center;
+			display: none;
+		}
+		/*我是业主悬浮显示*/
+		.owner:hover > .owner_serve{
+			display: block;
+		}
+		/*我是业主悬浮显示内容*/
+		.show_serve{
+			position: relative;
+			cursor: none;
+			width: 120px;
+			/*height: 25px;*/
+			line-height: 25px;
+			top: 30px;
+			right: 24px;
+			background: #fff;
+			border-radius: 6px;
+		}
+		/*我是业主弹框链接样式*/
+		.show_serve a{
+			font-size: 18px;
+			color: #101d37;
+			padding-bottom: 10px; 
+		}
+		/*下载弹框*/
+		.download{
+			width: 120px;
+			position: absolute;
+			top: 30px;
+			text-align: center;
+			display: none;
+		}
+		/*下载鼠标悬浮显示*/
+		.list_down:hover > .download {
+			display: block;
+		}
+		/*下载APP弹框样式*/
+		.down_APP{
+			padding: 52px 0 32px 0;
+			cursor: default;
+			width: 200px;
+			color: #101d37;
+			background: #fff;
+			position: relative;
+			top: 30px;
+			right: 60px;
+			border-radius: 6px;
+		}
+		/*下载弹框图标*/
+		.icon_download{
+			background-image: url('images/logo.png');
+			background-position: 0 0;
+			width: 72px;
+			height: 72px;
+			margin: 0 auto;
+		}
+		/*下载弹框标题*/
+		.down_title{
+			padding-top: 5px;
+			height: 25px;
+			line-height: 25px;
+			font-size: 18px;
+			font-weight: 600px;
+		}
+		/*下载弹框小标题*/
+		.down_subtitle{
+			height: 17px;
+			line-height: 17px;
+			font-size: 12px;
+			margin-bottom: 20px;
+		}
+		/*下载弹框二维码*/
+		.download_img{
+			width: 120px;
+			height: 120px;
+		}
+		/*内容区*/
+		.content{
+			width: 1500px;
+			margin: 0 auto;
+		}
+		/*内容区栏目样式*/
+		.content_kind{
+			width: 78%;
+			height: 412px;
+			margin: 80px auto;
+			/*margin-top: 80px;*/
+			margin-bottom: 80px;
+
+			/*background-color: lightblue;*/
+		}
+		/*内容小标题二手好房等*/
+		.content_title{
+			height: 50px;
+			font-size: 36px;
+			line-height: 50px;
+			color: #101d37;
+			font-weight: 600;
+		}
+		/*房屋介绍框*/
+		.content_intro{
+			width: 100%;
+			height: 22px;
+			line-height: 22px;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		/*房屋介绍几室几厅*/
+		.content_intro_left{
+			color: #9399a5;
+		}
+		/*房屋介绍价钱*/
+		.content_intro_right{
+			color: #3072f6;
+			font-weight: 600;
+			float: right;
+			margin-right: 50px;
+		}
+		.content_main{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		/*4张图片的栏目*/
+		.content_main_one{
+			margin-right: 25px;
+			width: 265px;
+			height: 315px;
+			position: relative;
+			float: left;
+		}
+		/*3张图片的栏目*/
+		.content_main_two{
+			margin-right: 25px;
+			width: 364px;
+			height: 336px;
+			position: relative;
+			float: left;
+		}
+		/*房屋地址字体*/
+		.house_name{
+			display: -webkit-box;
+			-webkit-line-clamp:2;
+			-webkit-box-orient:vertical;
+			text-overflow: ellipsis;
+			font-size: 18px;
+			font-weight: 700;
+			color: #222;
+			overflow: hidden;
+		}
+		/*房屋名称样式*/
+		.house_info{
+			margin-top: 10px;
+			font-size: 12px;
+			color: #616669;
+			overflow: hidden;
+		}
+		/*海外房产地址*/
+		.outhouse_info{
+			margin-top: 10px;
+			font-size: 12px;
+			color: #222;
+			overflow: hidden;
+		}
+		/*小区和新房栏目图片*/
+		.big_img{
+			width: 364px;
+			height: 272px;
+			border-radius: 4px;
+		}
+		/*外国房屋图片*/
+		.outhouse_img{
+			width: 265px;
+			height: 205px;
+			border-radius: 4px;
+		}
+		/*房屋价格*/
+		.house_price{
+			font-weight: 700;
+			float: right;
+			font-size: 16px;
+			color: #fa5741;
+		}
+		/*优选好房角标*/
+		.goodhouse{
+			width: 86px;
+			height: 30px;
+			border-radius: 0;
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-color: red;
+		}
+		/*新房图中文字样式*/
+		.new_house_name{
+			font-size: 24px;
+			color: #fff;
+			position: absolute;
+			left: 32%;
+			top: 32%;
+			font-weight: 600;
+		}
+		/*美元*/
+		.doller{
+			position: absolute;
+			right: 16px;
+			bottom: 150px;
+			font-size: 12px;
+			line-height: 12px;
+			color: #fff;
+		}
+		/*换算人民币*/
+		.rmb{
+			position: absolute;
+			right: 16px;
+			bottom: 130px;
+			font-size: 16px;
+			line-height: 16px;
+			font-weight: 700;
+			color: #f9bd67;
+		}
+		/*页面底部整体样式*/
+		.footer{
+			width: 78%;
+			min-height: 437px; 
+			/*background-color: pink;*/
+			margin: 0 auto;
+			border-top: 1px solid #e4e6f0;
+		}
+		/*底部三个按钮*/
+		.footer_title{
+			width: 100%;
+			padding: 32px 0 0 0;
+			font-size: 16px;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		/*底部三个按钮列表样式*/
+		.footer_title li{
+			float: left;
+			padding: 0 25px;
+			line-height: 54px;
+			border: 1px solid #d9d6d6;
+			border-radius: 5px;
+			display: inline;
+			font-weight: 700;
+		}
+		/*底部按钮字体颜色*/
+		.footer_title li > a{
+			color: #222;
+		}
+		/*官方客服咨询样式*/
+		.footer_title_right > a{
+			float: right;
+			font-weight: 600;
+			color: #3072F6;
+		}
+		/*底部链家链接盒子*/
+		.lianjia_link_box{
+			width: 1150px;
+		}
+		/*链接盒子内容*/
+		.lianjia_content{
+			width: 1150px;
+		}
+		/*链家列表*/
+		.lianjia_nav{
+			color: #101d37;
+			cursor: pointer;
+		}
+		.lianjia_nav_list{
+		    /*border:1px solid red;*/
+			overflow: hidden;
+			display: flex;
+			justify-content: space-between;
+		}
+		.lianjia_nav_list li{;
+			display: inline-block;
+			list-style: none;
+			/*overflow: hidden;*/
+		} 
+		/*弹框链接鼠标悬浮下划线*/
+		.lianjia_nav a:hover{
+			text-decoration: underline;
+		}
+		/*城市二手房鼠标悬浮显示*/
+		.city_ershou:hover  > .city_ershou_mes{
+			display: block;
+			border:1px solid red;
+		}
+		.city_ershou{
+			float: left;
+		}
+		.city_ershou_mes{
+			display: none;
+			/*position: relative;*/
+		}
+		/*房产资讯鼠标悬浮显示*/
+		.house_mes:hover > .house_mes_mes{
+			display: block;
+		}
+		.house_mes{
+			float: left;
+		}
+		.house_mes_mes{
+
+			display: none;
+			/*position: relative;*/
+		}
+		/*城区二手房鼠标悬浮显示*/
+		.cityin_ershou:hover  > .cityin_ershou_mes{
+			display: block;
+		}
+		.cityin_ershou{
+			float: left;
+		}
+		.cityin_ershou_mes{
+			display: none;
+		}
+		/*城区租房鼠标悬浮显示*/
+		.city_zf:hover  > .city_zf_mes{
+			display: block;
+		}
+		.city_zf{
+			float: left;
+		}
+		.city_zf_mes{
+			display: none;
+		}
+		/*城区小区鼠标悬浮显示*/
+		.city_xq:hover  > .city_xq_mes{
+			display: block;
+		}
+		.city_xq{
+			float: left;
+		}
+		.city_xq_mes{
+			display: none;
+		}
+		/*热门小区鼠标悬浮显示*/
+		.hot_xq:hover  > .hot_xq_mes{
+			display: block;
+		}
+		.hot_xq{
+			float: left;
+		}
+		.hot_xq_mes{
+			display: none;
+		}
+		/*热门问答鼠标悬浮显示*/
+		.hot_wd:hover  > .hot_wd_mes{
+			display: block;
+		}
+		.hot_wd{
+			float: left;
+		}
+		.hot_wd_mes{
+			display: none;
+		}
+		/*热门百科鼠标悬浮显示*/
+		.hot_bk:hover  > .hot_bk_mes{
+			display: block;
+		}
+		.hot_bk{
+			float: left;
+		}
+		.hot_bk_mes{
+			display: none;
+		}
+		/*合作伙伴鼠标悬浮显示*/
+		.parter:hover  > .parter_mes{
+			display: block;
+		}
+		.parter{
+			float: left;
+		}
+		.parter_mes{
+			display: none;
+		}
+		/*城市二手房弹框样式*/
+		.city_ershou_mes > a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px auto;
+		}
+		/*房产资讯弹框样式*/
+		.house_mes_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*城区二手房弹框样式*/
+		.cityin_ershou_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*城区租房弹框样式*/
+		.city_zf_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*城区小区弹框样式*/
+		.city_xq_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*热门小区弹框样式*/
+		.hot_xq_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*热门问答弹框样式*/
+		.hot_wd_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*热门百科弹框样式*/
+		.hot_bk_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+		/*合作伙伴弹框样式*/
+		.parter_mes >a{
+			color: #B7BBC3;
+			cursor: pointer;
+			display: inline-block;
+			margin: 3px 5px auto;
+		}
+
+		/*银行部分整体样式*/
+		.bank{
+			margin-top: 24px;
+			width: 1150px;
+			height: 60px;
+			margin-bottom: 20px;
+		}
+		/*银行标志去除li前的点*/
+		.bank li{
+			list-style: none;
+		}
+		/*银行图标*/
+		.bank > ul > li > img{
+			height: 40px;
+			float: left;
+			margin-right: 40px;
+		}
+		/*底部页面安全字体样式*/
+		.footer_bottom{
+			font-size: 14px;
+			color: #b7bbc3;
+			line-height: 20px;
+		}
+		/*底部页面安全链接字体颜色*/
+		.footer_bottom > a{
+			color: #b7bbc3;
+		}
+		/*底部页面安全链接鼠标悬浮下划线*/
+		.footer_bottom a:hover{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div class="header_top">
+				<a href="8-贝壳网.html" class="logo" target="_self"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="//www.ke.com/city/" class="city">
+					<img src="images/地址.png" alt="" class="address">
+					苏州
+				</a>
+				<div class="header_top_right">
+					<div class="login">
+						<img src="images/用户.png" alt="头像" class="user_img">
+						<a href="">登录&nbsp;&nbsp;/&nbsp;</a>
+						<a href="">注册</a>
+					</div>
+				</div>
+				<div class="header_top_center">
+					<ul>
+						<li><a href="https://su.ke.com/ershoufang">二手房</a></li>
+						<li><a href="https://su.fang.ke.com/loupan">新房</a></li>
+						<li><a href="https://su.zu.ke.com/zufang">租房</a></li>
+						<li><a href="https://i.ke.com">海外</a></li>
+						<li><a href="https://shangye.ke.com/su">商业办公</a></li>
+						<li><a href="https://su.ke.com/xiaoqu/">小区</a></li>
+						<li><a href="https://news.ke.com/su/baike/">百科</a></li>
+						<li class="owner"><a href="https://su.ke.com/yezhu/maifang/?channel_id=2004">我是业主</a>
+							<div class="owner_serve">
+								<div class="show_serve">
+									<dd><a href="">发布房源</a></dd>
+									<dd><a href="">房屋估价</a></dd>
+								</div>
+							</div>
+						</li>
+						<li><a href="https://research.ke.com/">贝壳研究院</a></li>
+						<li class="list_down"><a href="" style="margin-right: 30px">下载APP</a>
+							<div class="download">
+								<div class="down_APP">
+									<div class="icon_download"></div>
+									<div>
+										<div class="down_title">贝壳找房</div>
+										<div class="down_subtitle">遇上你的梦想家</div>
+										<img src="images/getDownload.png" class="download_img">
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="small_title">
+					<span>要找真房源 还是贝壳全</span>
+				</div>
+				<div class="big_title">开始寻找属于你的家</div>
+				<div class="search_box">
+					<div class="menu">
+						<ul>
+							<li class="tab check" data-type="请输入区域、板块或小区名开始找房">
+								<span>找二手房</span>
+							</li>
+							<li class="tab check" data-type="请输入区域、板块或小区名开始找房">
+								<span>找租房</span>
+							</li>
+							<li class="tab check" data-type="请输入区域、板块或小区名开始找房">
+								<span>找小区</span>
+							</li>
+						</ul>
+						<i></i>
+					</div>
+				</div>
+				<div class="search_clear">
+					<div class="box">
+						<div class="searchBox_clear">
+							<input class="search_input" type="text" placeholder="请输入区域、板块、或小区名开始找房">
+							<input type="text" style="width: 0px;height: 0px;border:0;">
+							<a class="address_icon" href="https://map.ke.com/map/320500/ESF/"><span class="icon"></span>地图</a>
+							<input class="btn_search" type="button">
+							<i></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_bottom">
+				<div class="house_num">
+					<i></i>
+					<ul>
+						<li>苏州在售二手房 91467套</li>
+						<!-- <li>苏州在售新房楼盘 1177套</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content_kind">
+				<div class="content_four_img">
+					<div class="content_title">二手好房</div>
+					<div class="content_intro">
+						<p class="content_intro_left">好房源那么多，我们为你精选<a class="content_intro_right" href="https://su.ke.com/ershoufang/">更多苏州二手房</a></p>
+					</div>
+					<div class="content_main">
+						<ul class="content_main_one">
+							<img src="images/二手好房1.jpg" alt="首创悦都 3室2厅 南">
+							<span><img class="goodhouse" src="images/必看好房.png"></span>
+							<div class="content_main_bottom">
+								<p class="house_name">昆山·开发区</p>
+								<p class="house_name">首创悦都</p>
+								<p class="house_info">3室2厅·89平米<span class="house_price">158万</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/二手好房2.jpg" alt="绿地21新城 全新装修 换房急售 有钥匙 满二年">
+							<span><img class="goodhouse" src="images/必看好房.png"></span>
+							<div class="content_main_bottom">
+								<p class="house_name">昆山·开发区</p>
+								<p class="house_name">绿地21新城</p>
+								<p class="house_info">3室2厅·89平米<span class="house_price">163万</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/二手好房3.jpg" alt="裕花园南北通 精装修业主急售 房型好无抵押看房方便">
+							<span><img class="goodhouse" src="images/必看好房.png"></span>
+							<div class="content_main_bottom">
+								<p class="house_name">昆山·花桥</p>
+								<p class="house_name">滨江裕花园</p>
+								<p class="house_info">3室2厅·94平米<span class="house_price">172万</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/二手好房4.jpg" alt="高楼层，视野棒，采光足，业主诚意出售，有钥匙随时看">
+							<span><img class="goodhouse" src="images/必看好房.png"></span>
+							<div class="content_main_bottom">
+								<p class="house_name">工业园区·湖东CBD</p>
+								<p class="house_name">第五元素</p>
+								<p class="house_info">2室2厅·94.86平米<span class="house_price">365万</span></p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="content_kind">
+				<div class="content_three_img">
+					<div class="content_title">小区精选</div>
+					<div class="content_intro">
+						<p class="content_intro_left">纵览小区，恋上这座城<a class="content_intro_right" href="https://su.ke.com/ershoufang/">更多苏州小区</a></p>
+					</div>
+					<div class="content_main">
+						<ul class="content_main_two">
+							<img class="big_img" src="images/小区精选1.jpg" alt="世茂蝴蝶湾">
+							<div class="content_main_bottom">
+								<p class="house_name">世茂蝴蝶湾<span class="house_price">14372/平</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_two">
+							<img class="big_img" src="images/小区精选2.jpg" alt="万科魅力花园">
+							<div class="content_main_bottom">
+								<p class="house_name">万科魅力花园<span class="house_price">20319/平</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_two">
+							<img class="big_img" src="images/小区精选3.jpg" alt="鑫苑国际城市花园(昆山市)">
+							<div class="content_main_bottom">
+								<p class="house_name">鑫苑国际城市花园(昆山市)<span class="house_price">16894/平</span></p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="content_kind">
+				<div class="content_three_img">
+					<div class="content_title">优选新房</div>
+					<div class="content_intro">
+						<p class="content_intro_left">真实信息准确同步，楼盘动态一手掌握<a class="content_intro_right" href="https://su.ke.com/ershoufang/">更多苏州新房</a></p>
+					</div>
+					<div class="content_main">
+						<ul class="content_main_two">
+							<img class="big_img" src="images/优选新房1.jpg" alt="弘扬上熙名苑">
+							<div class="new_house_name">
+								弘阳上熙名苑
+								<p style="font-size: 14px;text-align: center;">24000元/平</p>
+							</div>
+						</ul>
+						<ul class="content_main_two">
+							<img class="big_img" src="images/优选新房2.jpg" alt="海伦堡云璟台">
+							<div class="new_house_name">
+								海伦堡云璟台
+								<p style="font-size: 14px;text-align: center;">16500元/平</p>
+							</div>
+						</ul>
+						<ul class="content_main_two">
+							<img class="big_img" src="images/优选新房3.jpg" alt="兰亭都荟">
+							<div class="new_house_name">
+								兰亭都荟
+								<p style="font-size: 14px;text-align: center;">14500元/平</p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="content_kind">
+				<div class="content_four_img">
+					<div class="content_title">品质租房</div>
+					<div class="content_intro">
+						<p class="content_intro_left">高品质租房体验，从贝壳开始<a class="content_intro_right" href="https://su.ke.com/ershoufang/">更多苏州租房</a></p>
+					</div>
+					<div class="content_main">
+						<ul class="content_main_one">
+							<img src="images/品质租房1.jpg" alt="整租 沁怡家园2室2厅">
+							<div class="content_main_bottom">
+								<p class="house_name">整租·沁怡家园2室2厅</p>
+								<p class="house_info">狮山/2室2厅1卫<span class="house_price">3200/月</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/品质租房2.jpg" alt="整租 湖滨花园(吴中区)4室2厅">
+							<div class="content_main_bottom">
+								<p class="house_name">整租·湖滨花园(吴中区)4室2厅</p>
+								<p class="house_info">郭巷/4室2厅2卫<span class="house_price">3700/月</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/品质租房3.jpg" alt="整租 水岸年华 3室2厅">
+							<div class="content_main_bottom">
+								<p class="house_name">整租·水岸年华 3室2厅</p>
+								<p class="house_info">科技城/3室2厅1卫<span class="house_price">3600/月</span></p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img src="images/品质租房4.jpg" alt="整租 沁怡家园2室2厅">
+							<div class="content_main_bottom">
+								<p class="house_name">整租·凯德都会新峰4室2厅</p>
+								<p class="house_info">花桥/4室2厅2卫<span class="house_price">5600/月</span></p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="content_kind">
+				<div class="content_four_img">
+					<div class="content_title">海外房产</div>
+					<div class="content_intro">
+						<p class="content_intro_left">海量全球好房，畅想美好生活<a class="content_intro_right" href="https://su.ke.com/ershoufang/">更多海外</a></p>
+					</div>
+					<div class="content_main">
+						<ul class="content_main_one">
+							<img class="outhouse_img" src="images/海外房产1.jpg" alt="休斯顿 海湖Bay Colony别墅">
+							<p class="doller">约27-33万美元</p>
+							<p class="rmb">约189-231万元</p>
+							<div class="content_main_bottom">
+								<p class="house_info">美国·里士满</p>
+								<p class="house_name">休斯顿 海湖Bay Colony别墅</p>
+								<p class="outhouse_info">4室 207-208m²</p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img class="outhouse_img" src="images/海外房产2.jpg" alt="伦敦 珑茵港">
+							<p class="doller">约43-80万英镑</p>
+							<p class="rmb">约389-723万元</p>
+							<div class="content_main_bottom">
+								<p class="house_info">英国·伦敦</p>
+								<p class="house_name">伦敦·珑茵港</p>
+								<p class="outhouse_info">1-3室 52-113m²</p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img class="outhouse_img" src="images/海外房产3.jpg" alt="普吉岛 Oceana Surin Condominium 高级别墅、公寓一体住宅">
+							<p class="doller">约575-708万泰铢</p>
+							<p class="rmb">约128-157万元</p>
+							<div class="content_main_bottom">
+								<p class="house_info">泰国·普吉岛</p>
+								<p class="house_name">普吉岛 Oceana Surin Condominium 高级别墅、公寓一体住宅</p>
+								<p class="outhouse_info">1-3室 45-225m²</p>
+							</div>
+						</ul>
+						<ul class="content_main_one">
+							<img class="outhouse_img" src="images/海外房产4.jpg" alt="奥兰多 尚古斯庄园独栋别墅 Sawgrass Plantation">
+							<p class="doller">约31-45万美元</p>
+							<p class="rmb">约217-315万元</p>
+							<div class="content_main_bottom">
+								<p class="house_info">美国·奥兰多</p>
+								<p class="house_name">奥兰多 尚古斯庄园独栋别墅 Sawgrass Plantation</p>
+								<p class="outhouse_info">3-5室 168-378m²</p>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer_title">
+				<ul>
+					<li><a href="https://open.ke.com/home">开放平台</a></li>
+					<li><a href="https://su.ke.com/sitemap/">网站地图</a></li>
+					<li><a href="https://about.ke.com/introduce/index.html">了解贝壳</a></li>
+				</ul>
+				<div class="footer_title_right">
+					<a href="8-贝壳网.html">官方客服咨询</a>
+				</div>
+			</div>
+			<div class="lianjia_link_box">
+				<div class="lianjia_content">
+					<div class="lianjia_nav">
+						<ul class="lianjia_nav_list">
+							<li class="city_ershou">城市二手房
+								<div class="city_ershou_mes">
+									<a target="_blank" href="https://ta.ke.com/">泰安房产网</a>
+									<a target="_blank" href="https://nb.ke.com/">宁波房产网</a>
+									<a target="_blank" href="https://wlmq.ke.com/">乌鲁木齐房产网</a>
+									<a target="_blank" href="https://cq.ke.com/">重庆房产网</a>
+									<a target="_blank" href="https://zz.ke.com/">郑州房产网</a>
+									<a target="_blank" href="https://changzhou.ke.com/">常州房产网</a>
+									<a target="_blank" href="https://bj.ke.com/">北京房产网</a>
+									<a target="_blank" href="https://jining.ke.com/">济宁房产网</a>
+									<a target="_blank" href="https://yw.ke.com/">义乌房产网</a>
+									<a target="_blank" href="https://wz.ke.com/">温州房产网</a>
+									<a target="_blank" href="https://hf.ke.com/">合肥房产网</a>
+									<a target="_blank" href="https://yinchuan.ke.com/">银川房产网</a>
+									<a target="_blank" href="https://jz.ke.com/">晋中房产网</a>
+									<a target="_blank" href="https://jx.ke.com/">嘉兴房产网</a>
+									<a target="_blank" href="https://zs.ke.com/">中山房产网</a>
+									<a target="_blank" href="https://wf.ke.com/">潍坊房产网</a>
+									<a target="_blank" href="https://huangshi.ke.com/">黄石房产网</a>
+									<a target="_blank" href="https://wuhu.ke.com/">芜湖房产网</a>
+									<a target="_blank" href="https://wh.ke.com/">武汉房产网</a>
+									<a target="_blank" href="https://ych.ke.com/">宜春房产网</a>
+									<a target="_blank" href="https://nt.ke.com/">南通房产网</a>
+									<a target="_blank" href="https://luoyang.ke.com/">洛阳房产网</a>
+									<a target="_blank" href="https://huzhou.ke.com/">湖州房产网</a>
+									<a target="_blank" href="https://yt.ke.com/">烟台房产网</a>
+									<a target="_blank" href="https://lyg.ke.com/">连云港房产网</a>
+									<a target="_blank" href="https://kf.ke.com/">开封房产网</a>
+									<a target="_blank" href="https://jian.ke.com/">吉安房产网</a>
+									<a target="_blank" href="https://nanchong.ke.com/">南充房产网</a>
+									<a target="_blank" href="https://sx.ke.com/">绍兴房产网</a>
+									<a target="_blank" href="https://zhuzhou.ke.com/">株洲房产网</a>
+									<a target="_blank" href="https://zmd.ke.com/">驻马店房产网</a>
+									<a target="_blank" href="https://bd.ke.com/">保定房产网</a>
+									<a target="_blank" href="https://heze.ke.com/">菏泽房产网</a>
+									<a target="_blank" href="https://baotou.ke.com/">包头房产网</a>
+									<a target="_blank" href="https://ha.ke.com/">淮安房产网</a>
+									<a target="_blank" href="https://ganzhou.ke.com/">赣州房产网</a>
+									<a target="_blank" href="https://jh.ke.com/">金华房产网</a>
+									<a target="_blank" href="https://mas.ke.com/">马鞍山房产网</a>
+									<a target="_blank" href="https://dd.ke.com/">丹东房产网</a>
+									<a target="_blank" href="https://cs.ke.com/">长沙房产网</a>
+									<a target="_blank" href="https://cd.ke.com/">成都房产网</a>
+									<a target="_blank" href="https://zk.ke.com/">周口房产网</a>
+									<a target="_blank" href="https://hanzhong.ke.com/">汉中房产网</a>
+									<a target="_blank" href="https://yc.ke.com/">盐城房产网</a>
+									<a target="_blank" href="https://hhht.ke.com/">呼和浩特房产网</a>
+									<a target="_blank" href="https://zb.ke.com/">淄博房产网</a>
+									<a target="_blank" href="https://quzhou.ke.com/">衢州房产网</a>
+									<a target="_blank" href="https://liangshan.ke.com/">凉山房产网</a>
+									<a target="_blank" href="https://hui.ke.com/">惠州房产网</a>
+									<a target="_blank" href="https://xy.ke.com/">襄阳房产网</a>
+									<a target="_blank" href="https://hrb.ke.com/">哈尔滨房产网</a>
+									<a target="_blank" href="https://cf.ke.com/">赤峰房产网</a>
+									<a target="_blank" href="https://xinxiang.ke.com/">新乡房产网</a>
+									<a target="_blank" href="https://qd.ke.com/">青岛房产网</a>
+									<a target="_blank" href="https://yichang.ke.com/">宜昌房产网</a>
+									<a target="_blank" href="https://zhangzhou.ke.com/">漳州房产网</a>
+									<a target="_blank" href="https://jl.ke.com/">吉林房产网</a>
+									<a target="_blank" href="https://zjk.ke.com/">张家口房产网</a>
+									<a target="_blank" href="https://gz.ke.com/">广州房产网</a>
+									<a target="_blank" href="https://jiujiang.ke.com/">九江房产网</a>
+									<a target="_blank" href="https://jn.ke.com/">济南房产网</a>
+									<a target="_blank" href="https://km.ke.com/">昆明房产网</a>
+									<a target="_blank" href="https://xa.ke.com/">西安房产网</a>
+									<a target="_blank" href="https://aq.ke.com/">安庆房产网</a>
+									<a target="_blank" href="https://dy.ke.com/">德阳房产网</a>
+									<a target="_blank" href="https://linyi.ke.com/">临沂房产网</a>
+									<a target="_blank" href="https://yy.ke.com/">岳阳房产网</a>
+									<a target="_blank" href="https://ts.ke.com/">唐山房产网</a>
+									<a target="_blank" href="https://cc.ke.com/">长春房产网</a>
+									<a target="_blank" href="https://zunyi.ke.com/">遵义房产网</a>
+									<a target="_blank" href="https://zh.ke.com/">珠海房产网</a>
+									<a target="_blank" href="https://quanzhou.ke.com/">泉州房产网</a>
+									<a target="_blank" href="https://pingxiang.ke.com/">萍乡房产网</a>
+									<a target="_blank" href="https://liuzhou.ke.com/">柳州房产网</a>
+									<a target="_blank" href="https://ez.ke.com/">鄂州房产网</a>
+									<a target="_blank" href="https://luzhou.ke.com/">泸州房产网</a>
+									<a target="_blank" href="https://dl.ke.com/">大连房产网</a>
+									<a target="_blank" href="https://sjz.ke.com/">石家庄房产网</a>
+									<a target="_blank" href="https://sz.ke.com/">深圳房产网</a>
+									<a target="_blank" href="https://jdz.ke.com/">景德镇房产网</a>
+									<a target="_blank" href="https://dazhou.ke.com/">达州房产网</a>
+									<a target="_blank" href="https://nn.ke.com/">南宁房产网</a>
+									<a target="_blank" href="https://lz.ke.com/">兰州房产网</a>
+									<a target="_blank" href="https://jy.ke.com/">江阴房产网</a>
+									<a target="_blank" href="https://hk.ke.com/">海口房产网</a>
+									<a target="_blank" href="https://baoji.ke.com/">宝鸡房产网</a>
+									<a target="_blank" href="https://gy.ke.com/">贵阳房产网</a>
+									<a target="_blank" href="https://sy.ke.com/">沈阳房产网</a>
+									<a target="_blank" href="https://fs.ke.com/">佛山房产网</a>
+									<a target="_blank" href="https://nc.ke.com/">南昌房产网</a>
+									<a target="_blank" href="https://ms.ke.com/">眉山房产网</a>
+									<a target="_blank" href="https://san.ke.com/">三亚房产网</a>
+									<a target="_blank" href="https://xianyang.ke.com/">咸阳房产网</a>
+									<a target="_blank" href="https://weihai.ke.com/">威海房产网</a>
+									<a target="_blank" href="https://changde.ke.com/">常德房产网</a>
+									<a target="_blank" href="https://xm.ke.com/">厦门房产网</a>
+									<a target="_blank" href="https://ty.ke.com/">太原房产网</a>
+									<a target="_blank" href="https://gl.ke.com/">桂林房产网</a>
+									<a target="_blank" href="https://yibin.ke.com/">宜宾房产网</a>
+									<a target="_blank" href="https://dg.ke.com/">东莞房产网</a>
+									<a target="_blank" href="https://sr.ke.com/">上饶房产网</a>
+									<a target="_blank" href="https://zj.ke.com/">镇江房产网</a>
+									<a target="_blank" href="https://zhanjiang.ke.com/">湛江房产网</a>
+								</div>
+							</li>
+							<li class="house_mes">房产资讯
+								<div class="house_mes_mes">
+	                            		<a target="_blank" href="https://news.ke.com/">房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/nb/">宁波房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/nb/baike/">宁波房产百科</a>
+	                                	<a target="_blank" href="https://news.ke.com/cq/">重庆房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/cq/baike/">重庆房产百科</a>
+	                                	<a target="_blank" href="https://cq.ke.com/wenda/">重庆房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/zz/">郑州房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/zz/baike/">郑州房产百科</a>
+	                                	<a target="_blank" href="https://news.ke.com/bj/">北京房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/bj/baike/">北京房产百科</a>
+	                                	<a target="_blank" href="https://bj.ke.com/wenda/">北京房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/hf/">合肥房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/hf/baike/">合肥房产百科</a>
+	                                	<a target="_blank" href="https://hf.ke.com/wenda/">合肥房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/wh/">武汉房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/wh/baike/">武汉房产百科</a>
+	                                	<a target="_blank" href="https://news.ke.com/yt/">烟台房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/yt/baike/">烟台房产百科</a>
+	                                	<a target="_blank" href="https://news.ke.com/cs/">长沙房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/cs/baike/">长沙房产百科</a>
+	                                	<a target="_blank" href="https://cs.ke.com/wenda/">长沙房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/cd/">成都房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/cd/baike/">成都房产百科</a>
+	                                	<a target="_blank" href="https://cd.ke.com/wenda/">成都房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/qd/">青岛房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/qd/baike/">青岛房产百科</a>
+	                                	<a target="_blank" href="https://qd.ke.com/wenda/">青岛房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/gz/">广州房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/gz/baike/">广州房产百科</a>
+	                                	<a target="_blank" href="https://gz.ke.com/wenda/">广州房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/jn/">济南房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/jn/baike/">济南房产百科</a>
+	                                	<a target="_blank" href="https://jn.ke.com/wenda/">济南房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/xa/">西安房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/xa/baike/">西安房产百科</a>
+	                                	<a target="_blank" href="https://xa.ke.com/wenda/">西安房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/dl/">大连房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/dl/baike/">大连房产百科</a>
+	                                	<a target="_blank" href="https://dl.ke.com/wenda/">大连房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/sjz/">石家庄房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/sjz/baike/">石家庄房产百科</a>
+	                                	<a target="_blank" href="https://sjz.ke.com/wenda/">石家庄房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/sz/">深圳房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/sz/baike/">深圳房产百科</a>
+	                                	<a target="_blank" href="https://sz.ke.com/wenda/">深圳房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/sy/">沈阳房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/sy/baike/">沈阳房产百科</a>
+	                                	<a target="_blank" href="https://sy.ke.com/wenda/">沈阳房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/fs/">佛山房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/fs/baike/">佛山房产百科</a>
+	                                	<a target="_blank" href="https://fs.ke.com/wenda/">佛山房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/xm/">厦门房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/xm/baike/">厦门房产百科</a>
+	                                	<a target="_blank" href="https://news.ke.com/dg/">东莞房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/dg/baike/">东莞房产百科</a>
+	                                	<a target="_blank" href="https://dg.ke.com/wenda/">东莞房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/nj/">南京房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/nj/baike/">南京房产百科</a>
+	                                	<a target="_blank" href="https://nj.ke.com/wenda/">南京房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/hz/">杭州房产资讯</a>
+	                               		<a target="_blank" href="https://news.ke.com/hz/baike/">杭州房产百科</a>
+	                                	<a target="_blank" href="https://hz.ke.com/wenda/">杭州房产知识</a>
+	                                	<a target="_blank" href="https://news.ke.com/tj/">天津房产资讯</a>
+	                                	<a target="_blank" href="https://news.ke.com/tj/baike/">天津房产百科</a>
+	                                	<a target="_blank" href="https://tj.ke.com/wenda/">天津房产知识</a>
+								</div>
+							</li>
+							<li class="cityin_ershou">城区二手房
+								<div class="cityin_ershou_mes">
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/gusu/">姑苏二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/gaoxin1/">高新二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/wuzhong/">吴中二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/xiangcheng/">相城二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/wujiang/">吴江二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/changshu/">常熟二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/zhangjiagang/">张家港二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/kunshan/">昆山二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/taicang/">太仓二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/ershoufang/gongyeyuan/">工业园区二手房</a>
+								</div>
+							</li>
+							<li class="city_zf">城区租房
+								<div class="city_zf_mes">
+	                                    <a target="_blank" href="https://su.ke.com/zufang/gusu/">姑苏租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/gaoxin1/">高新租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/wuzhong/">吴中租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/xiangcheng/">相城租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/wujiang/">吴江租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/changshu/">常熟租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/zhangjiagang/">张家港租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/kunshan/">昆山租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/taicang/">太仓租房</a>
+	                                    <a target="_blank" href="https://su.ke.com/zufang/gongyeyuan/">工业园区租房</a>
+								</div>
+							</li>
+							<li class="city_xq">城区小区
+								<div class="city_xq_mes">
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/gusu/">姑苏小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/gaoxin1/">高新小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/wuzhong/">吴中小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/xiangcheng/">相城小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/wujiang/">吴江小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/changshu/">常熟小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/zhangjiagang/">张家港小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/kunshan/">昆山小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/taicang/">太仓小区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/gongyeyuan/">工业园区小区</a>
+								</div>
+							</li>
+							<li class="hot_xq">热门小区
+								<div class="hot_xq_mes">
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033374967446/">华美达广场</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033490190362/">象屿都城</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033673688566/">花苑新村（花桥）</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320035049072068/">绿地中央广场四期</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320037598061411/">耀江淀湖桃源</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320039071693037/">龙隐水庄</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239544826891960/">太湖颐景</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887923034/">康悦家园</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239977475104786/">海亮香榭里</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311053826228/">城邦花园西区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311054689023/">苏锦二村北区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311055860820/">彩虹新村</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2312850929087084/">中新星湖公馆</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033108508132/">昆城景苑</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033413643405/">大唐花苑南区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033678935120/">凯德都会晶彩</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033719836663/">凤凰城</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033814204179/">大德玲珑湾</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887922228/">合景领汇</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887922731/">都市VIP</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887922737/">春申景城</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311047863734/">雅戈尔潇邦西区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311055061264/">新馨花园</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2317925779763684/">金域华府</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033253220135/">银鹿新城</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2310636325040394/">托斯卡纳东泰花园</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320023622181563/">云玺湖滨商务广场</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033736602375/">家速度公馆</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/237098155150801/">望湖湾</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887922305/">沁怡家园</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/239821887922497/">中梁香缇</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2310661654441207/">吉田国际广场</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311054436056/">欧风丽苑</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311054510262/">大观花园北区</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311054674870/">三元一村</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2311055169620/">朗沁花园</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320023625329190/">绿地旭辉吴门府</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033553101458/">集善新村</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320033698854150/">云山诗意(昆山市)</a>
+	                                    <a target="_blank" href="https://su.ke.com/xiaoqu/2320034337972665/">品院观悦</a>
+	                                </div>
+							</li>
+							<li class="hot_wd">热门问答
+								<div class="hot_wd_mes">
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1001/">房价行情</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1002/">购房建议</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1003/">购房资质</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1004/">买房风险</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1005/">二手房</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1006/">新房</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b1007/">海外买房</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b2001/">税费计算</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b2002/">认购签约</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b2003/">资金监管</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b2004/">过户流程</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b2005/">入住交接</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b3001/">房屋估价</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b3002/">卖房流程</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b3003/">出售方案</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b3004/">业主风险</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b3005/">卖旧买新</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5001/">贷款利率</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5002/">首付月供</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5003/">贷款流程</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5004/">住房公积金</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5005/">商业贷款</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5006/">融资借款</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b5007/">金融方案</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b6001/">房产政策</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b6002/">法律纠纷</a>
+	                                    <a target="_blank" href="https://su.ke.com/wenda/liebiao/b6003/">保障住房</a>
+	                                	<a target="_blank" href="https://su.ke.com/wenda/liebiao/b6004/">其他</a>
+	                                </div>
+							</li>
+							<li class="hot_bk">热门百科
+								<div class="hot_bk_mes">
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0033/">房产政策</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0035/">购房建议</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0036/">购房资质</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0037/">房屋贷款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0039/">保障住房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0040/">产权/变更</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0041/">法律纠纷</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0042/">房屋装修</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0044/">准备买房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0045/">看房/选房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0046/">签约/定房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0047/">全款/贷款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0048/">缴税/过户</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0049/">入住/交接</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0050/">买房风险</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0051/">准备买房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0052/">看房/选房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0053/">认购新房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0054/">签约/定房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0055/">全款/贷款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0056/">收房/验房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0057/">装修/入住</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0058/">退房/维权</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0059/">各国概况</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0060/">计划买房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0061/">签约定房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0062/">银行贷款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0063/">交易过户</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0064/">房屋代理</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0066/">准备卖房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0067/">产权核验</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0068/">收定金/签约</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0069/">分步收款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0070/">缴税/过户</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0071/">交房须知</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0072/">卖房风险</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0073/">准备换房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0074/">换房方案</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0075/">卖旧/买新</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0077/">缴税/过户</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0078/">交房/收房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/0079/">换房风险</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/00779/">找房看房</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/00780/">签约付款</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/00781/">物业交割</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/00782/">租房纠纷</a>
+	                                    <a target="_blank" href="https://news.ke.com/su/baike/00783/">我是房东</a>
+								</div>
+							</li>
+							<li class="parter">友情与合作链接
+								<div class="parter_mes">
+	                                    <a target="_blank" href="http://china.findlaw.cn/suzhou">苏州律师</a>
+	                                    <a target="_blank" href="https://www.lawtime.cn/sz">苏州律师咨询</a>
+	                                    <a target="_blank" href="http://suzhou.jiwu.com">苏州房产网</a>
+	                                    <a target="_blank" href="http://www.jia.com/suzhou">苏州装修</a>
+	                                    <a target="_blank" href="http://suzhou.loupan.com/">苏州房产网</a>
+	                                    <a target="_blank" href="http://ts.17house.com/">上海装修网</a>
+	                                    <a target="_blank" href="http://suzhou.huangye88.com/">苏州信息网</a>
+	                                    <a target="_blank" href="http://xian.soufy.cn/">搜房源网</a>
+	                                    <a target="_blank" href="http://haerbin.grfy.net/">个人房源网</a>
+	                                    <a target="_blank" href="http://su.ssjzw.com/">苏州兼职网</a>
+	                                    <a target="_blank" href="http://dongfang.hainanfangjia.com/">东方房价</a>
+	                                    <a target="_blank" href="http://su.1010jz.com/">苏州兼职</a>
+	                                    <a target="_blank" href="http://fuzhou.01fy.cn/">福州二手房</a>
+	                                    <a target="_blank" href="http://hz.ziroom.com/">杭州租房网</a>
+	                                    <a target="_blank" href="http://suzhou.focus.cn/">苏州房产</a>
+	                                    <a target="_blank" href="http://suzhou.laobangban.com">苏州分类信息</a>
+	                                    <a target="_blank" href="http://ningguo.qizuang.com/">宁国装修</a>
+								</div>
+							</li>
+							<li class="rule">贝壳规则中心</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="bank">
+					<ul>
+						<li><img src="images/zsyh.png" alt=""></li>
+						<li><img src="images/shyh.jpg" alt=""></li>
+						<li><img src="images/gdyh.png" alt=""></li>
+						<li><img src="images/hxyh.png" alt=""></li>
+					</ul>
+			</div>
+			<div class="footer_bottom">
+                天津小屋信息科技有限公司 | 地址：天津经济技术开发区南港工业区综合服务区办公楼C座一层112室09单元 | 电话：10106188  | <a target="_blank" href="http://www.beian.miit.gov.cn/"></a> | © Copyright 2020 ke.com版权所有| <a target="_blank" href="https://file.ljcdn.com/bigc-file2cdn/Mensa/1585731661478.pdf">营业执照</a> | <a target="_blank" href="https://file.ljcdn.com/bigc-file2cdn/Mensa/1585732230759.pdf">ICP证</a> | <a target="_blank" href="https://file.ljcdn.com/bigc-file2cdn/Mensa/1585824326852.pdf">网络文化经营许可证</a><br>
+                违法和不良信息举报电话：010-86440676| 违法和不良信息举报邮箱：jubaoyouxiang@ke.com <br>
+                <img src="https://s1.ljcdn.com/pegasus/redskull/images/common/beian.png?_v=20200728160221" style="display: inline-block;"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010602120282">津公网安备 12010602120282号</a> | <a target="_blank" href="https://www.12377.cn/">网上有害信息举报专区</a>    
+			</div>
+		</div>
+	</div>
+</body>
+</html>
